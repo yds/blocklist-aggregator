@@ -62,8 +62,10 @@ and whitelists without loading them into the packet filter.
 
 The `fetch` task is smart enough to not download any public lists
 more often than the `interval` setting allows. Some blacklists are
-updated as often as every 5 minutes [NUBI][], or every hour
+updated as often as every 5 minutes e.g. [NUBI][], or every hour e.g.
 [CINS Army][], but most are updated no more often than once a day.
+The `interval` setting defaults to 24 hours if missing in the list
+definition.
 
 It does not make sense to run the `fetch` task more often than every
 5 minutes.  Running less often than every 5 minutes is fine.
