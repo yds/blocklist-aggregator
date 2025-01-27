@@ -72,7 +72,7 @@ It does not make sense to run the `fetch` task more often than every
 
 ## [Invoke][] tasks
 
-All tasks have an `--verbose` parameter to display the output of
+All tasks have a `--verbose` parameter to display the output of
 what is getting done.  The `clean` task _requires_ the `--verbose`
 parameter to actually delete all the files and directories created
 by the other tasks.
@@ -85,8 +85,8 @@ by the other tasks.
 - `inv whitelist --verbose`: process the `whitelist.txt` file
   to a CIDR list. This file can be a mix of hostnames,
   IP addresses or CIDRs.
-- `inv pfreplace --verbose`: `pfctl` replace the <knowngood>
-  and <blocklist> tables with new CIDRs.
+- `inv pfreplace --verbose`: `pfctl` replace the `knowngood`
+  and `blocklist` tables with new CIDRs.
 - `inv suricataupdate --verbose`: compile the downloaded
   IP reputation lists into [Suricata][] IP reputation format
   CSV files and perform a full [Suricata][] update.
@@ -125,10 +125,10 @@ The sample `whitelist.txt` file is downloaded from the [MalTrail][]
 malicious traffic detection system project.  Definitely look over
 the content and remove anything you do not need whitelisted.
 
-Before enabling the <blocklist> in the packet filter run `inv fetch`
+Before enabling the `blocklist` in the packet filter run `inv fetch`
 and ensure that everything you need whitelisted is indeed in the
 `knowngood.cidr` output file and search the generated `blocklist.cidr`
-file to ensure nothing you need whitelisted ends up in the <blocklist>.
+file to ensure nothing you need whitelisted ends up in the `blocklist`.
 
 ## License
 
