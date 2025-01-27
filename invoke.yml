@@ -1,0 +1,168 @@
+#fetch: /usr/local/bin/curl -Rso
+blocklist: /var/db/ipf/blocklist.cidr
+knowngood: /var/db/ipf/knowngood.cidr
+updatelog: /var/log/suricata/update.log
+iprep: /usr/local/etc/suricata/iprep/
+
+blacklists:
+- /var/db/ipf/blacklist*.cidr
+
+whitelists:
+- /var/db/ipf/whitelist*.cidr
+
+knowngoods:
+- name: MalTrailCDN
+  description: MalTrail CDN collection of known good IPv4 CIDRs
+  url: 'https://Raw.GithubUserContent.com/stamparm/maltrail/refs/heads/master/misc/cdn_ranges.txt'
+  interval: 1w
+  format: cidr
+- name: Akamai
+  description: Akamai IPv4 CIDRs
+  url: 'https://TechDocs.Akamai.com/property-manager/pdfs/akamai_ipv4_CIDRs.txt'
+  interval: 26w
+  format: cidr
+- name: CacheFly
+  description: CacheFly IPv4 CIDRs
+  url: 'https://CacheFly.CacheFly.net/ips/rproxy.txt'
+  interval: 26w
+  format: cidr
+- name: CloudFlareIPsV4
+  description: CloudFlare IPv4 CIDRs
+  url: 'https://www.CloudFlare.com/ips-v4'
+  format: cidr
+- name: CrowdSecSEO
+  description: CrowdSec SEO bots
+  url: 'https://Hub-Data.CrowdSec.net/whitelists/benign_bots/search_engine_crawlers/ip_seo_bots.txt'
+  interval: 26w
+  format: cidr
+- name: DuckDuckBot
+  description: DuckDuckBot web crawler for DuckDuckGo
+  url: 'http://DuckDuckGo.com/duckduckbot.html'
+  interval: 1w
+  format: regex
+  re: '^<li>(\d+\.\d+\.\d+\.\d+)</li>$'
+- name: Facebook
+  description: Facebook
+  www: 'https://Gist.GitHub.com/Whitexp/9591384'
+  url: 'https://Gist.GitHub.com/Whitexp/9591384/raw/2bd0ee6ff33572e774964bed5629b2ab959655ab/facebok%2520ip%2520list'
+  interval: 1w
+  format: cidr
+- name: Fastly
+  description: Fastly Edge Cloud Platform Managed CDN Public IP List
+  url: 'https://API.Fastly.com/public-ip-list'
+  interval: 1w
+  format: json
+  ipv4: addresses
+  ipv6: ipv6_addresses
+- name: Imperva
+  description: Imperva IP addresses
+  www: 'https://Docs.Imperva.com/bundle/z-kb-articles-knowledgebase-support/page/290228110.html'
+  url: 'https://My.Imperva.com/api/integration/v1/ips?resp_format=json'
+  interval: 1w
+  format: json
+  ipv4: ipRanges
+  ipv6: ipv6Ranges
+- name: AmazonCloudFront
+  description: Amazon Cloud Front AWS IP address ranges
+  www: 'https://Docs.AWS.Amazon.com/AmazonCloudFront/latest/DeveloperGuide/LocationsOfEdgeServers.html'
+  url: 'https://IP-Ranges.AmazonAWS.com/ip-ranges.json'
+  format: json
+  table: prefixes
+  ipv4: ip_prefix
+  ipv6: ipv6_prefix
+  services:
+  - CLOUDFRONT
+  - GLOBALACCELERATOR
+  date:
+    label: createDate
+    format: '%Y-%m-%d-%H-%M-%S'
+
+blocklists:
+- name: BD-BanList
+  description: Binary Defense Ban List
+  url: 'https://www.BinaryDefense.com/banlist.txt'
+  format: cidr
+- name: CI-BadGuys
+  description: The CINS Army List
+  www: 'https://CINSsCore.com/#list'
+  url: 'https://CINSsCore.com/list/ci-badguys.txt'
+  interval: 1h
+  format: cidr
+- name: ET-BlockIPs
+  description: Emerging Threats Firewall Block List
+  url: 'https://Rules.EmergingThreats.net/fwrules/emerging-Block-IPs.txt'
+  interval: 2d
+  format: cidr
+- name: ET-CompromisedIPs
+  description: Emerging Threats Compromised
+  url: 'https://Rules.EmergingThreats.net/blockrules/compromised-ips.txt'
+  interval: 2d
+  format: cidr
+- name: FireHOL-Level1
+  description: 'FireHOL Level 1 - Includes: bambenek_c2 dshield feodo fullbogons spamhaus_drop spamhaus_edrop sslbl zeus_badips ransomware_rw'
+  url: 'https://Raw.GithubUserContent.com/firehol/blocklist-ipsets/master/firehol_level1.netset'
+  format: cidr
+  date:
+    label: This File Date
+    format: '%a %b %d %H:%M:%S %Z %Y'
+- name: FireHOL-Level2
+  description: 'FireHOL Level 2 - Includes: blocklist_de dshield_1d greensnow'
+  url: 'https://Raw.GithubUserContent.com/firehol/blocklist-ipsets/master/firehol_level2.netset'
+  format: cidr
+  date:
+    label: This File Date
+    format: '%a %b %d %H:%M:%S %Z %Y'
+- name: FireHOL-Level3
+  description: 'FireHOL Level 3 - Includes: bruteforceblocker ciarmy dshield_30d dshield_top_1000 malc0de myip shunlist snort_ipfilter sslbl_aggressive talosintel_ipfilter zeus vxvault'
+  url: 'https://Raw.GithubUserContent.com/firehol/blocklist-ipsets/master/firehol_level3.netset'
+  format: cidr
+  date:
+    label: This File Date
+    format: '%a %b %d %H:%M:%S %Z %Y'
+- name: MalTrailBogons
+  description: MalTrail bogon IPv4 CIDRs
+  url: 'https://Raw.GithubUserContent.com/stamparm/maltrail/refs/heads/master/misc/bogon_ranges.txt'
+  interval: 1w
+  format: cidr
+- name: NUBI-BadIPs
+  description: NUBI was designed to be a replacement for the venerable BadIPs.com after their website went offline in late 2020
+  www: 'https://www.NUBI-Network.com/faq.php'
+  url: 'https://www.NUBI-Network.com/list.txt'
+  interval: 5m
+  format: cidr
+  date:
+    label: Last updated on
+    format: '%a %b %d %Y %H:%M:%S %Z'
+
+whitelist: 'https://Raw.GithubUserContent.com/stamparm/maltrail/refs/heads/master/misc/whitelist.txt'
+
+zzz_disabled:
+- name: AlienVault
+  description: AlienVault
+  url: 'https://Reputation.AlienVault.com/reputation.generic'
+  format: cidr
+- name: ISC-DShield
+  description: Internet Storm Center DShield
+  url: 'https://Feeds.DShield.org/block.txt'
+  format: range
+- name: ISC-Shodan
+  description: Internet Storm Center Shodan
+  url: 'https://ISC.Sans.edu/api/threatlist/shodan/shodan.txt'
+  format: cidr
+- name: AdServers
+  description: pgl.yoyo.org AdServers
+  url: 'https://pgl.yoyo.org/adservers/iplist.php?ipformat=&showintro=0&mimetype=plaintext'
+  format: cidr
+- name: TorList
+  description: dan.me.uk torlist
+  url: 'https://www.dan.me.uk/torlist/'
+  format: cidr
+- name: SSLBL-Botnet-C2-IP-Blacklist
+  description: Abuse.ch SSLBL Botnet C2 IP Blacklist - DEPRECATED on 2025-01-03
+  url: 'https://SSLBL.Abuse.ch/blacklist/sslipblacklist.txt'
+  format: cidr
+- name: EdgeCast
+  description: EdgeCast CDN IPs
+  www: 'https://Developer.EdgeCast.com/cdn/api/Content/Media_Management/Get-CDN-IP-Blocks.htm'
+  url: 'https://API.EdgeCast.com/v2/mcc/customers/superblocks'
+  format: cidr

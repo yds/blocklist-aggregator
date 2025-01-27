@@ -1,0 +1,3 @@
+#minute	hour	mday	month	wday	who	command
+*/5	*	*	*	*	root	cd /var/db/ipf && /usr/local/bin/invoke pfreplace
+31	0	*	*	*	root	cd /var/db/ipf && /usr/local/bin/invoke suricataupdate

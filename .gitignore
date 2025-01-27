@@ -1,3 +1,13 @@
+# generated directories and files
+drop/
+pass/
+whitelist*
+blacklist*
+*.cidr
+*.addr
+*.list
+*.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
