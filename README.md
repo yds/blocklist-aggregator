@@ -31,7 +31,7 @@ Review and edit the `invoke.yml` configuration file:
 - `whitelist`: URL of a sample `whitelist.txt` file to download if a local file cannot be found.
 
 **IMPORTANT**: create a `whitelist.cidr` file with all the IP ranges
-which you **NEVER** want blocked.  Include [RFC1918][] address
+which you **NEVER** want blocked. Include [RFC1918][] address
 ranges and any IP address ranges assigned to you by your ISP.
 
 The `invoke.yml` configuration file has default settings to include
@@ -68,12 +68,12 @@ The `interval` setting defaults to 24 hours if missing in the list
 definition.
 
 It does not make sense to run the `fetch` task more often than every
-5 minutes.  Running less often than every 5 minutes is fine.
+5 minutes. Running less often than every 5 minutes is fine.
 
 ## [Invoke][] tasks
 
 All tasks have a `--verbose` parameter to display the output of
-what is getting done.  The `clean` task _requires_ the `--verbose`
+what is getting done. The `clean` task _requires_ the `--verbose`
 parameter to actually delete all the files and directories created
 by the other tasks.
 
@@ -94,7 +94,7 @@ by the other tasks.
   compiling the output CIDR lists.
 
 DNS lookups tend to be slow therefore `whitelist.spf` and `whitelist.txt`
-are processed only when the timestamp of the files changes.  
+are processed only when the timestamp of the files changes.
 
 ## Requirements and dependencies
 
@@ -109,6 +109,17 @@ The following ports/pkgs are optional:
 - [security/suricata](https://Suricata.io/ "High Performance Network IDS, IPS and Security Monitoring engine"): High Performance Network IDS, IPS and Security Monitoring engine
 - [ftp/curl](https://cURL.se/ "Command line tool and library for transferring data with URLs"): Command line tool and library for transferring data with URLs
 
+## Misc Notes
+
+The sample `whitelist.txt` file is downloaded from the [MalTrail][]
+malicious traffic detection system. Definitely look over the content
+and remove anything you do not need whitelisted.
+
+Before enabling the `blocklist` in the packet filter run `inv fetch`
+and ensure that everything you need whitelisted is indeed in the
+`knowngood.cidr` output file and search the generated `blocklist.cidr`
+file to ensure nothing you need whitelisted ends up in the `blocklist`.
+
 ## Linux
 
 To use [curl](https://cURL.se/ "Command line tool and library for transferring data with URLs")
@@ -118,17 +129,6 @@ fetch: /usr/local/bin/curl -Rso
 ```
 adjust the path above to `/usr/bin/curl` and with a few other path
 tweaks the `fetch` and `suricataupdate` tasks should work on Linux.
-
-## Misc Notes
-
-The sample `whitelist.txt` file is downloaded from the [MalTrail][]
-malicious traffic detection system project.  Definitely look over
-the content and remove anything you do not need whitelisted.
-
-Before enabling the `blocklist` in the packet filter run `inv fetch`
-and ensure that everything you need whitelisted is indeed in the
-`knowngood.cidr` output file and search the generated `blocklist.cidr`
-file to ensure nothing you need whitelisted ends up in the `blocklist`.
 
 ## License
 
