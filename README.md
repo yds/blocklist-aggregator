@@ -143,5 +143,5 @@ See [LICENSE](https://GitHub.com/yds/blocklist-compiler/blob/master/LICENSE "BSD
 [Suricata]:https://Suricata.io/ "High Performance Network IDS, IPS and Security Monitoring engine"
 [MalTrail]:https://GitHub.com/stamparm/maltrail "Maltrail is a malicious traffic detection system"
 [RFC1918]:https://www.RFC-Editor.org/rfc/rfc1918 "Address Allocation for Private Internets"
-[CINS Army]:https://CINSarmy.com/list-download/ "Collective Intelligence Network Security"
+[CINS Army]:https://CINSscore.com/#list "Collective Intelligence Network Security"
 [NUBI]:https://www.NUBI-Network.com/faq.php "NUBI was designed to be a replacement for the venerable BadIPs.com after their website went offline in late 2020."
