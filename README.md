@@ -103,6 +103,7 @@ On [FreeBSD][] the following ports/pkgs are required:
 - [devel/py-invoke](https://PyInvoke.org/ "Invoke is a Python library for managing shell-oriented subprocesses and organizing executable Python code into CLI-invokable tasks."): Python task execution tool and library
 - [devel/py-fabric](https://FabFile.org/ "Fabric is a high level Python library designed to execute shell commands remotely over SSH."): High level SSH command execution
 - [devel/py-pyyaml](https://PyYAML.org/ "YAML Ain't Markup Language"): Python YAML parser
+- [dns/py-dnspython](https://www.DNSpython.org/ "DNS toolkit for Python"): DNS toolkit for Python
 - [net-mgmt/iprange](https://GitHub.com/firehol/iprange "IP ranges management tool"): IP ranges management tool
 
 The following ports/pkgs are optional:
