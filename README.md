@@ -12,7 +12,7 @@ e.g. `/etc/iprange/` or `/var/db/ipf/`
 
 Install by cloning the repo:
 ```sh
-git clone https://github.com/yds/blocklist-compiler /var/db/ipf
+git clone https://github.com/yds/blocklist-compiler.git /var/db/ipf
 ```
 Change `/var/db/ipf/` in the above command to whatever directory
 makes sense to you on *your* system, this HowTo will assume that's
