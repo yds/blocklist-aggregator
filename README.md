@@ -1,4 +1,4 @@
-# Blocklist IPrange compiler
+# Blocklist IPrange aggregator
 
 ## What does it do?
 
