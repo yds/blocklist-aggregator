@@ -33,7 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 from fabric import task
 from invoke import Collection, Exit
 from dns.resolver import resolve, NXDOMAIN
-from urllib.request import urlopen
+from urllib.request import build_opener
 from socket import inet_aton
 from calendar import timegm
 from time import strptime, time
@@ -44,8 +44,11 @@ import re
 
 ns = Collection()
 cwd = os.getcwd()
-encoding = 'utf-8'
+urlopen = build_opener()
+urlopen.addheaders = [('User-Agent', 'Blocklist IPrange aggregator')]
+urlopen = urlopen.open
 verbose = {'verbose': 'show running tasks'}
+encoding = 'utf-8'
 
 def aton(addr):
     return inet_aton(addr.split('/')[0])
@@ -54,9 +57,7 @@ def aton(addr):
 @task(help={'verbose': 'show discovered paths'})
 def config(c, verbose=False):
     '''configure tasks environment'''
-    if 'git' not in c: c.git = c.run('which git', hide=True, warn=True).stdout.strip()
     if 'sed' not in c: c.sed = c.run('which sed', hide=True, warn=True).stdout.strip() + ' -Ee'
-    if 'curl' not in c: c.curl = c.run('which curl', hide=True, warn=True).stdout.strip() + ' -Rso'
     if 'fetch' not in c: c.fetch = c.run('which fetch', hide=True, warn=True).stdout.strip() + ' -qo'
     if 'pfctl' not in c: c.pfctl = c.run('which pfctl', hide=True, warn=True).stdout.strip()
     if 'iprange' not in c: c.iprange = c.run('which iprange', hide=True, warn=True).stdout.strip() + ' --optimize'
