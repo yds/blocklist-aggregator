@@ -153,14 +153,16 @@ zzz_disabled:
   description: pgl.yoyo.org AdServers
   url: 'https://pgl.yoyo.org/adservers/iplist.php?ipformat=&showintro=0&mimetype=plaintext'
   format: cidr
-- name: TorList
-  description: dan.me.uk torlist
-  url: 'https://www.dan.me.uk/torlist/'
-  format: cidr
 - name: SSLBL-Botnet-C2-IP-Blacklist
   description: Abuse.ch SSLBL Botnet C2 IP Blacklist - DEPRECATED on 2025-01-03
   url: 'https://SSLBL.Abuse.ch/blacklist/sslipblacklist.txt'
   format: cidr
+- name: TorList
+  description: Dan.me.UK Tor Exit List
+  url: 'https://www.dan.me.uk/torlist/'
+  interval: 1d
+  format: regex
+  re: '^(\d+\.\d+\.\d+\.\d+)$'
 - name: EdgeCast
   description: EdgeCast CDN IPs
   www: 'https://Developer.EdgeCast.com/cdn/api/Content/Media_Management/Get-CDN-IP-Blocks.htm'
