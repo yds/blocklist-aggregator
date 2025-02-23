@@ -47,6 +47,12 @@ knowngoods:
   url: 'https://Gist.GitHub.com/Whitexp/9591384/raw/2bd0ee6ff33572e774964bed5629b2ab959655ab/facebok%2520ip%2520list'
   interval: 1w
   format: cidr
+- name: UptimeRobot
+  description: UptimeRobot IPv4 and IPv6 list
+  url: 'https://UptimeRobot.com/inc/files/ips/IPv4andIPv6.txt'
+  interval: 1d
+  format: regex
+  re: '^(\d+\.\d+\.\d+\.\d+)$'
 - name: Fastly
   description: Fastly Edge Cloud Platform Managed CDN Public IP List
   url: 'https://API.Fastly.com/public-ip-list'
